@@ -1,9 +1,18 @@
+import sbt._
+import sbt.Keys._
 
 lazy val scalikedb = (project in file("."))
+  .enablePlugins(PlayScala)
   .settings(
     name := "scalikedb",
     fork in run := true,
-    libraryDependencies ++=Seq(
+    libraryDependencies ++= Seq(
+      filters,
+      guice,
+      jdbc,
+      evolutions,
+      "org.scalatestplus.play" %% "scalatestplus-play"           % "4.0.1" % Test,
+    ) ++ Seq(
       "org.scalikejdbc"        %% "scalikejdbc"                  % scalikejdbcVersion,
       "org.scalikejdbc"        %% "scalikejdbc-config"           % scalikejdbcVersion,
       "org.scalikejdbc"        %% "scalikejdbc-jsr310"           % scalikejdbcVersion,
@@ -15,7 +24,7 @@ lazy val scalikedb = (project in file("."))
       "org.postgresql" % "postgresql" % "42.2.8",
       // https://mvnrepository.com/artifact/mysql/mysql-connector-java
       "mysql" % "mysql-connector-java" % "8.0.18"
-    ),
+    )
   )
 
 name := "scalikedb"
@@ -23,3 +32,5 @@ name := "scalikedb"
 version := "0.1"
 
 scalaVersion := "2.12.9"
+
+val scalikejdbcVersion = "2.5.2"
