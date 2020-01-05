@@ -19,5 +19,4 @@ object Dependency {
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     "mysql" % "mysql-connector-java" % mysqlVersion
   )
-
 }
