@@ -15,4 +15,10 @@ class MainDbController @Inject()(
     }
   }
 
+  def main1: Action[AnyContent] = Action.async { implicit request =>
+    Future {
+      Ok("Ok")
+    }
+  }
+
 }
