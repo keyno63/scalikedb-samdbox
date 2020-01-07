@@ -20,5 +20,4 @@ class MainDbController @Inject()(
       Ok("Ok")
     }
   }
-
 }
