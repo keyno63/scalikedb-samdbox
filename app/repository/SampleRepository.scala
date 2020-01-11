@@ -1,5 +1,5 @@
 package repository
 
-class SampleRepository {
+object SampleRepository {
 
 }
