@@ -1,9 +1,7 @@
 package domain
 
 object Domain extends App {
-
-
-
+  DomainBuilder().name("some").id(1).build
 }
 
 case class DomainBase(name: String, id: Int)
@@ -18,5 +16,9 @@ class DomainBuilder(
 
   def name(name: String) = new DomainBuilder(domain.copy(name = name))
   def id(id: Int) = new DomainBuilder(domain.copy(id = id))
+  def build: Unit = {
+    println(s"name=${domain.name}, id=${domain.id}")
+  }
+
 
 }
