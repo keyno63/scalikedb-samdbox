@@ -1,23 +1,43 @@
 package domain
 
 object Domain extends App {
-  DomainBuilder().name("some").id(1).build
+  DomainBuilder()
+    .name("some")
+    .id(1)
+    .seq("sample")
+    .seq("seq")
+    .seq("ence")
+    .build()
+
+  println("")
+  val sample = DomainBuilder()
+    .name("new")
+    .id(2)
+  val x = Seq(
+    "sample",
+    "seq",
+    "ence",
+    "X!!!"
+  )
+  x.foldLeft(sample){_.seq(_)}.build()
 }
 
-case class DomainBase(name: String, id: Int)
+case class DomainBase(name: String, id: Int, sq: Seq[String])
 
 object DomainBuilder {
   def apply(): DomainBuilder = new DomainBuilder()
 }
 
 class DomainBuilder(
-     domain: DomainBase = DomainBase("", 0)
+     domain: DomainBase = DomainBase("", 0, Seq.empty[String])
    ) {
 
   def name(name: String) = new DomainBuilder(domain.copy(name = name))
   def id(id: Int) = new DomainBuilder(domain.copy(id = id))
-  def build: Unit = {
+  def seq(value: String) = new DomainBuilder(domain.copy(sq = domain.sq :+ value))
+  def build(): Unit = {
     println(s"name=${domain.name}, id=${domain.id}")
+    domain.sq.foreach(print(_))
   }
 
 
