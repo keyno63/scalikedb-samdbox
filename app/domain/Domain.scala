@@ -9,7 +9,6 @@ object Domain extends App {
     .seq("ence")
     .build()
 
-  println("")
   val sample = DomainBuilder()
     .name("new")
     .id(2)
@@ -37,7 +36,7 @@ class DomainBuilder(
   def seq(value: String) = new DomainBuilder(domain.copy(sq = domain.sq :+ value))
   def build(): Unit = {
     println(s"name=${domain.name}, id=${domain.id}")
-    domain.sq.foreach(print(_))
+    println(domain.sq.mkString)
   }
 
 
