@@ -1,13 +1,6 @@
 package domain
 
 object Domain extends App {
-  DomainBuilder()
-    .name("some")
-    .id(1)
-    .seq("sample")
-    .seq("seq")
-    .seq("ence")
-    .build()
 
   val sample = DomainBuilder()
     .name("new")
