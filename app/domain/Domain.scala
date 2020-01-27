@@ -5,23 +5,23 @@ object Domain extends App {
   val sample = DomainBuilder()
     .name("new")
     .id(2)
-  val x = Seq(
+  val seq1 = Seq(
     "sample",
     "seq",
     "ence",
     "X!!!"
   )
-  x.foldLeft(sample){_.seq(_)}.build()
+  seq1.foldLeft(sample){_.seq(_)}.build()
 
   val sample2 = DomainBuilder()
     .name("right")
     .id(3)
-  val y = Seq(
+  val seq2 = Seq(
     "number 2",
     "sequence",
     "sample"
   )
-  y.foldRight(sample2)((yy, ss) => ss.seq(yy)).build()
+  seq2.foldRight(sample2)((yy, ss) => ss.seq(yy)).build()
 
 }
 
