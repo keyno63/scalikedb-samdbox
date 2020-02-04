@@ -22,16 +22,6 @@ object Domain extends App {
     "sample"
   )
   seq2.foldRight(sample2)((yy, ss) => ss.seq(yy)).build()
-
-  val sample3 = DomainBuilder()
-    .name("right")
-    .id(4)
-  val seq3 = Seq(
-    "number 3",
-    "sequence",
-    "sample"
-  )
-  seq2.foldRight(sample2)((yy, ss) => ss.seq(yy)).build()
 }
 
 case class DomainBase(name: String, id: Int, sq: Seq[String])
