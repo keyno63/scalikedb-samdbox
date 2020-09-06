@@ -2,10 +2,10 @@ import sbt._
 import sbt.Keys._
 import Dependency._
 
-lazy val scalikedb = (project in file("."))
+lazy val `scalikejdbc-samdbox` = (project in file("."))
   .enablePlugins(PlayScala)
   .settings(
-    name := "scalikedb",
+    name := "scalikejdbc-samdbox",
     fork in run := true,
     libraryDependencies ++= Seq(
       filters,
@@ -23,4 +23,4 @@ name := "scalikedb"
 
 version := "0.1"
 
-scalaVersion := "2.12.9"
+scalaVersion := "2.13.4"
